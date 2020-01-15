@@ -64,8 +64,24 @@ class Multiblock_Page_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/multiblock-page-public.js', array( 'jquery' ), $this->version, false );
 	}
 
+	/**
+	 * @return bool
+	 */
+	public function mbp_set_css_default()
+	{
+		return true;
+	}
 
+	/**
+	 * @return bool
+	 */
+	public function mbp_get_css_option()
+	{
+		$options = get_option($this->plugin_name);
+		$options = $options['custom_css'];
 
+		return $options;
+	}
 
 
 }
